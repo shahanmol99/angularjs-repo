@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="table-responsive view">
+        <h2>Product Details: {{product.productName}} </h2>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Name: </td>
+                    <td>{{product.productName}}</td>
+                    <td rowspan="6"><img src={{product.imageUrl}}></td>
+                </tr>
+                <tr>
+                    <td>Code: </td>
+                    <td>{{product.productCode}}</td>
+                </tr>
+                <tr>
+                    <td>Descriptiom: </td>
+                    <td>{{product.description}}</td>
+                </tr>
+                <tr>
+                    <td>Availability: </td>
+                    <td>{{product.releaseDate}}</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>{{product.price |price}}</td>
+                </tr>
+                <tr>
+                    <td>5 Star Rating: </td>
+                    <td>
+                        <div>
+                            <div star-rating rating-value="product.starRating"></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background-color: #dcdcdc;">
+            <button class="btn btn-default"><a href="#/product"><b><</b>Back</a></button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Product-App</title>
+</head>
+
+<body ng-app="productSpa">
+    <nav class="navbar navbar-default">
+        <a href="#/" class="navbar-brand">Acme Product Managment</a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#/home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#/product">Product List</a>
+                </li>
+
+        </div>
+    </nav>
+    <div ng-view></div>
+
+    <script src="/angular.js"></script>
+    <script src="/angular-route.js"></script>
+    <script src="controller.js"></script>
+    <script src="service.js"></script>
+    <script src="/custom-directive.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

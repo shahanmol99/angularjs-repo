@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1</title>
+</head>
+<body ng-app="modA">
+
+    <section ng-controller="controllerA">
+        <h2>{{developer.name}}</h2>
+        <h2>{{developer.role}}</h2>
+    </section>
+    
+    <div ng-controller="controllerA">
+        <h2>{{company.name}}</h2>       
+        <h2>{{company.strength}}</h2>
+
+    </div>
+
+
+
+    <script src="angular.js"></script>
+    <!-- <script src="angular-route.js"></script> -->
+    <script src="module1.js"></script>
+    <!-- <script src="module1.min.js"></script> -->
+</body>
+</html>

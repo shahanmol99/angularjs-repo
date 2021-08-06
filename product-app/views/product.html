@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="view">
+        <h2>Product List</h2>
+        <label for="search">Filter by</label>
+        <input type="text" ng-model="search" placeholder="Enter Data to search" class="form-control" style="width: 250px;">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <th><button ng-click="setButton()">{{buttonName}}</button></th>
+                <th>Product</th>
+                <th>Code</th>
+                <th>Availabe</th>
+                <th>Price</th>
+                <th>Rating</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products | filter: search">
+                    <td ng-style="myStyle"><img src={{product.imageUrl}} style="width: 90px; height: 90px;"></td>
+                    <td><a href="#/productdetails/{{product.productCode}}">{{product.productName}}</a></td>
+                    <td>{{product.productCode}}</td>
+                    <td>{{product.releaseDate}}</td>
+                    <td>{{product.price |price }}</td>
+                    <td ng-model="myStyle">{{product.starRating}}
+                        <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>    
+    
+    </div>
+</body>
+</html>

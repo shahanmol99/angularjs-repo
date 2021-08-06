@@ -1,0 +1,98 @@
+<!DOCTYPE html>  
+ <html>  
+   <head>  
+      <title>Angular JS Forms</title>
+      <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+      <link href="style.css" rel="stylesheet">
+      <script src="../bootstrap/js/jquery.js"></script>
+      <script src="../bootstrap/js/bootstrap.js"></script>
+      <script src="angular.js"></script>
+      <script src="script.js"></script>
+   </head>  
+   <body ng-app = "mainApp" ng-controller = "studentController">  
+      <h2>AngularJS Sample Application</h2>  
+      <div >  
+           
+         <form name = "studentForm" novalidate>  
+            <table>  
+               <tr>  
+                  <td>Enter name:</td>  
+                  <td><input name = "name" type = "text" ng-model = "student.name" required>  
+                     <span style = "color:red" ng-show = "studentForm.name.$error.required ">  
+                        <span >Name is required.</span>  
+                     </span>  
+                  </td>  
+               </tr>
+                 
+               <tr>  
+                  <td>Email: </td><td><input name = "email" type = "email" ng-model = "student.email" length = "100" required>  
+                     <span style = "color:red" >  
+                        <span ng-show = "studentForm.email.$error.required">Email is required.</span>  
+                        <span ng-show = "studentForm.email.$error.email">Invalid email address.</span>  
+                     </span>  
+                  </td>  
+               </tr>
+               <tr>
+                  <td>Age: </td><td>  <input name="age" id="age" type="range" min="0" max="50" value="1" ng-model = "student.age" required>
+                     <span>{{student.age}}</span>
+                     <span style = "color:red" >
+                        <span ng-show = "studentForm.age.$error.required">Age is required.</span>
+                     </span>  
+                  </td>
+               </tr>
+               <tr>
+                  <td>Roll No: </td><td>  <input name="rollNo" type="text" id="rollNo" ng-model="student.rollNo" required>
+                     <span style = "color:red" >  
+                        <span ng-show = "studentForm.rollNo.$error.required">Roll No is required.</span>
+                     </span>  
+                  </td>
+               </tr>  
+               <tr>
+                  <td>Gender: </td>
+                  <td>
+                     <label for="male">Male</label>
+                     <input type="radio" name="isMale" value="true" ng-model="student.isMale">
+                     <label for="female">Female</label>
+                     <input type="radio" name="isMale" value="false" ng-model="student.isMale">
+                     <span style = "color:red" >
+                     <span ng-show = "studentForm.isMale.$error.required">Roll No is required.</span>
+                     </span>  
+                  </td>
+               </tr>  
+               <tr>
+                  <td>Date: </td><td>  <input name="date" type="date" id="date" ng-model="student.date">
+                     <span style = "color:red" >  
+                        <span ng-show = "studentForm.date.$error.required">Date is required.</span>
+                     </span>  
+                  </td>
+               </tr>    
+                <tr>  
+                  <td>  
+                     <button ng-click = "reset()">Reset</button>  
+                  </td>  
+                  <td>  
+                     <button ng-disabled = "studentForm.firstname.$pristine &&  
+                        studentForm.firstname.$invalid || studentForm.rollNo.$pristine &&  
+                        studentForm.rollNo.$invalid || studentForm.age.$pristine &&  
+                        studentForm.age.$invalid" ng-click="submitForm()" >Submit</button>  
+                  </td>  
+               </tr>  
+     </table>
+         </form>  
+      </div>
+      <div>
+         <p>Current Id</p>
+         <input name = "currentId" type = "text" ng-model = "currentStudentId">
+         <button ng-disabled = "studentForm.firstname.$pristine &&  
+         studentForm.firstname.$invalid || studentForm.rollNo.$pristine &&  
+         studentForm.rollNo.$invalid || studentForm.age.$pristine &&  
+         studentForm.age.$invalid" ng-click="update()"> update student </button>
+         <button  ng-click="getStudent()"> get one student</button>
+      </div>
+      <div>
+         <p>All chart</p>
+         <button ng-click="getAll()">get all</button>
+
+      </div>
+     </body>  
+</html>  

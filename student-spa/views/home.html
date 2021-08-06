@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div class="form-group" style="width: 250px;">
+        <label for="count">No of Students</label>
+        <input type="text" ng-model="vm.count" class="form-control" disabled>
+    </div>
+    <input type="text" ng-model="vm.search" placeholder="Enter Data to search" class="form-control" style="width: 250px;">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Date</th>
+            <th></th>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="student in vm.studentArr | filter: vm.search">
+                <td>{{student.rollNo}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.isMale |gender}}</td>
+                <td>{{student.date}}</td>
+                <td><a href="#/edit/{{student.id}}" class="btn btn-defaul">Edit</a></td>
+                <!-- <td><button ng-click="edit(student)" class="btn btn-default">Edit</button></td> -->
+                <td><button ng-click="delete(student.id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>    
+
+</body>
+</html>

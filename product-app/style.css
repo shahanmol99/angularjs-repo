@@ -1,0 +1,30 @@
+.view h2{
+    background-color: #1498EA;
+    color: whitesmoke;
+    font-size: 3rem;
+}
+
+.view {
+    border-radius: 1rem;
+    border: 1px solid #1498EA;
+    margin: 50px;
+}
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+
+ul.rating {
+    display: inline-block;
+}
+
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rating {
+            color: #a9a9a9;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.rating {
+            display: inline-block;
+        }
+
+        .rating li {
+            list-style-type: none;
+            display: inline-block;
+            padding: 1px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body ng-app="starApp">
+    <div ng-controller="StarCtrl"> 
+            <div star-rating rating-value="ratings.current"></div>
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="custom-directive.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=p, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="binding">
+
+    <section ng-controller="bindingController">
+        <p>{{student.name}}</p>
+        <p>{{student.rollno}}</p>
+    
+        <form>
+            <input type="text" ng-model="student.name">
+            <input type="text" ng-model="student.rollno">
+        </form>
+    
+
+        <p>{{::student.name}}</p>
+        <p>{{::student.rollno}}</p>
+    </section>
+    <script src="angular.js"></script>
+    <script src="binding.js"></script>
+</body>
+</html>

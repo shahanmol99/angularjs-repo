@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="service_v2.css">
+    <title>Registration Form</title>
+</head>
+<body ng-app="registrationModule">
+
+    <div ng-controller="controller1">
+        <h2 class="text-center" style="font-size: 3.95rem;">Registration Form</h2>
+        <form name="myForm" style="width: 450px; margin: auto;">
+
+            <div class="form-group">
+                <label for="name">ID</label>
+                <input class="form-control" id="disabledInput" type="text" 
+                    ng-model="vm.student.id" placeholder="Input is disabled..." disabled>            
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" ng-model="vm.student.name" ng-required="true">
+                <span style = "color:red" ng-show = "myForm.name.$touched && myForm.name.$invalid">  
+                    Name is required  
+                </span>  
+
+            </div>
+    
+            <div class="form-group">
+                <label for="rollno">Roll No</label>
+                <input type="text" name="rollNo" class="form-control" ng-model="vm.student.rollNo" ng-required="true">
+                <span style = "color:red" ng-show = "myForm.rollNo.$touched && myForm.rollNo.$invalid">  
+                    Roll-no is required  
+                </span>  
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" class="form-control" ng-model="vm.student.age" ng-required="true"> 
+                <span style = "color:red" ng-show = "myForm.age.$touched && myForm.age.$invalid">  
+                    Age is required  
+                </span>  
+            </div>
+
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="text" name="email" class="form-control" ng-model="vm.student.email" ng-required="true">
+                <span style = "color:red" ng-show = "myForm.email.$touched && myForm.email.$invalid ">  
+                    Email is required  
+                </span>  
+            </div>
+
+            <div class="form-group">
+                <input type="radio" name="isMale" value="true" ng-model="vm.student.isMale">
+                <label for="maleRadioBtn" class="radio-inline"><b>Male</b></label>
+                <input type="radio" name="isMale" value="false" ng-model="vm.student.isMale">
+                <label for="femaleRadioBtn" class="radio-inline"><b>Female</b></label>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" name="date" class="form-control" ng-model="vm.student.date" ng-required="true">
+                <span style = "color:red" ng-show = "myForm.date.$touched && myForm.date.$invalid">  
+                    Date is required  
+                </span>  
+            </div>
+
+            <div class="form-group">
+                <button ng-click="submit()" class="btn btn-primary">Submit</button>
+                <button ng-click="display()" class="btn btn-info">Display</button>
+                <button ng-click="update()" class="btn btn-default">Update</button>
+                <button ng-click="delete()" class="btn btn-danger">Delete</button>
+                <button ng-click="reset()" class="btn btn-default">Reset</button>
+            </div>
+        </form> 
+        
+        <div style="visibility: hidden;" ng-style="myStyle">
+            <input type="text" ng-model="vm.search" placeholder="Enter Data to search">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Date</th>
+                    <th></th>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="student in vm.studentArr | filter: vm.search">
+                        <td>{{student.rollNo}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.isMale |gender}}</td>
+                        <td>{{student.date}}</td>
+                        <td><button ng-click="updateField(student)" class="btn btn-default">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>    
+        </div>
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="service_v2.js"></script>
+</body>
+</html>

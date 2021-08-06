@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="todo.css">
+    <title>Todo App</title>
+</head>
+<body ng-app="myTodoApp">
+
+    <div ng-controller="todoController" class="addtodos">
+        <h2>My Todo List</h2>
+        <form class="form-inline">
+            <input class="form-control" class="col-xs-4" type="text" placeholder="Enter your todos" ng-model="task">
+            <button type="button" class="btn btn-primary" ng-click="add()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>     
+        </form>
+         
+        <div class="todos">
+            <ul class="todolist">
+                <div ng-repeat="task in tasks" class="todo">                
+                    <li>{{ task.name }}</li> 
+                    
+                    <button type="button" class="btn btn-danger" ng-click="remove(task)">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </button>
+
+                </div>
+            </ul> 
+        </div>
+
+    </div>
+    <script src="angular.js"></script>
+
+    <script src="todo.js"></script>
+</body>
+</html>
